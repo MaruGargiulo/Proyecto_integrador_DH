@@ -42,6 +42,7 @@ class StickerController extends Controller
             'sticker_number' => 'required',
             'category_id' => 'required',
             'description' => 'required|min:20',
+            'price' => 'required',
         ];
 
         $mensaje = [
@@ -50,14 +51,24 @@ class StickerController extends Controller
             'category_id.required' => 'Faltó seleccionar la categoría de tu sticker.',
             'description.required' => 'Faltó ingresar una descripción del producto.',
             'description.min' => 'La descripción no puede ser menor que 20 caracteres.',
-            
+            'price.required' => 'Debe agregarle un precio al sticker',            
         ];
 
         $this->validate($request, $reglas, $mensaje);
 
         $sticker = new Sticker($request->all());
 
+        $file = $request->file('photopath');
+
+        if($file === null) {
+            $sticker->photopath = "stickers-img/default-sticker.png";
+        } else {
+            $file = $request->file('photopath')->store('stickers-img', 'public');
+            $sticker->photopath = $file;
+        }
+
         $sticker->user_id = 1;
+        //$sticker->user_id = $this->id;
 
         $sticker->save();
 

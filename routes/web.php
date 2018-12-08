@@ -17,16 +17,19 @@
 //CARRITO (5)
 //TRANSACCIÓN (6)
 
+/*
 Route::get('/', function () {
     return view('template.master');
 });
+*/
 
-Auth::routes();
+    Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+    Route::view('/', 'layouts.home');
+
+    Route::get('/home', 'HomeController@index')->name('home');
 
 
-//USUARIOS REGISTRADOS
 
     //USUARIOS
     Route::prefix('user')->name('user.')->group(function (){
@@ -43,23 +46,13 @@ Auth::routes();
         Route::get('/{sticker}/edit', 'StickerController@edit')->name('edit');
         Route::patch('/{sticker}/edit', 'StickerController@update')->name('update');
         Route::delete('/{sticker_id}', 'StickerController@destroy')->name('delete');
+        Route::get('/', 'StickerController@index')->name('index');
+        Route::get('/{album_name}', 'StickerController@show')->name('show');
     });
 
 
-//INVITADO
-
-    //HOME
-Route::get('/', 'HomeController@index')->name('home');
-
     //USUARIO PARA REGISTRAR
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-
-    //FIGURITAS
-Route::prefix('stickers')->name('stickers.')->group(function (){
-    Route::get('/', 'StickerController@index')->name('index');
-    Route::get('/{album_name}', 'StickerController@show')->name('show');
-});
-
+    Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 
 
 

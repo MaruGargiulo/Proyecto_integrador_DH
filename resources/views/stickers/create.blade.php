@@ -17,13 +17,11 @@
     </div>
     @if($errors->has('sticker_number'))
     <p class="mensajes-error"> {{ $errors->first('sticker_number') }}</p>
-    @endif
-    <!--
+    @endif 
     <div class="form-group">
         <label for="type">Precio</label>
         <input type="text" class="form-control" name="price">
     </div>
-    -->
     <div class="form-group">
         <label for="type">Categoría</label>
         <select for="type" name="category_id">
@@ -43,12 +41,10 @@
     @if($errors->has('description'))
     <p class="mensajes-error"> {{ $errors->first('description') }}</p>
     @endif
-    <!--
     <div class="form-group">
         <label for="poster">Imagen</label>
         <input type="file" class="form-control-file" name="photopath">
       </div>
-    -->
     <div class="form-group">
         <input type="submit" class="btn btn-dark" value="Subir figurita">
     </div>
