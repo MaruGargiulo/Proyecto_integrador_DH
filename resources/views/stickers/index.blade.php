@@ -13,6 +13,7 @@
         <div class="card-body">
             <h3> {{ $sticker->album_name }} </h3>
           <p class="card-text"> N° de Figurita: {{ $sticker->sticker_number}} | Precio: ${{ $sticker->price }} </p>
+          <p class="card-text"> De: {{ $sticker->users->name }}</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
                 <a href=" {{ url("stickers/$sticker->album_name") }} "><button type="button" class="btn btn-sm sticker-show-button-selected">Ver más</button></a>

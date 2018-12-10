@@ -1,26 +1,200 @@
-.gradient {
-    padding-top: 5rem;
+/*  GLOBALES   */
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+/*  NAV BAR   */
+
+.nav-master {
+    background-color: #2caec2;
+    box-shadow: 0 8px 16px -6px rgb(87, 87, 87);
+    color: white;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.nav-master a {
+    color: white;
+}
+
+.logo {
+    text-transform: uppercase;
+}
+
+
+/*  HERO SECTION */
+
+.hero {
+    padding-top: 7rem;
     height: 100vh;
-    background-image: linear-gradient(to bottom, rgb(3, 199, 183), rgb(72, 10, 143));
+    background-image: url('/storage/hero-fondo.png');
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
   }
 
-.nav-master {
-    background-color: rgb(72, 10, 143);
-    box-shadow: 0 8px 16px -6px rgb(87, 87, 87);
-}
-
 .slogan {
     color: rgba(255,255,255, 0.9);
     text-align: center;
-    margin-top: 100px;
     font-size: 1.2em;
 }
 
-.slogan h1 {
+.titulo {
+    padding-top: 100px;
+    text-transform: uppercase;
     font-size: 2.5em;
 }
+
+.subtitulo {
+    font-weight: 300;
+    padding-bottom: 30px;
+}
+
+.boton-violeta {
+    background-color: #891d90;
+    color: white;
+    padding: 12px;
+    border-radius: 3px;
+}
+
+.boton-violeta:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #69176e;
+}
+
+
+/*  CÓMO FUNCIONA SECTION */
+
+.como-funciona {
+    background-color: rgb(248, 248, 248);
+    background-image: url('/storage/instrucciones-fondo.png');
+    background-size: cover;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    box-shadow: 0 8px 16px -6px rgb(87, 87, 87);
+    position: relative;
+    top: -50px;
+}
+
+.como-funciona h2 {
+    color: #5d5d5d;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.iconos-instrucciones {
+    display: inline-block;
+    height: 88px;
+}
+
+span.numeros {
+    color: #2caec2;
+    font-weight: 700;
+    font-size: 1.3rem;
+    padding-right: 5px;
+}
+
+.como-funciona p {
+    color: #5d5d5d;
+}
+
+.padding-top {
+    padding-top: 40px;
+}
+
+.text {
+    max-width: 300px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+.instrucciones-par {
+    margin-top: 40px;
+}
+
+
+/*  PREGUNTAS FRECUENTES */
+
+.preguntas-frecuentes {
+    background-image: url('/storage/preguntas-frecuentes-fondo.png');
+    background-size: cover;
+    background-position-y: -100px;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.preguntas-frecuentes h2 {
+    color: #2caec2;
+    font-weight: 700;
+    font-size: 1.8rem;
+    padding-top: 40px;
+}
+
+.preguntas-frecuentes section {
+    padding-top: 40px;
+}
+
+.preguntas-frecuentes img {
+    display: inline-block;
+    height: 4px;
+}
+
+.pregunta {
+    color: #2caec2;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding-top: 12px;
+}
+
+.respuesta {
+    color: #5d5d5d;
+    max-width: 320px;
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+/*  FOOTER */
+
+.footer-master {
+    background-color: #3e424d;
+    padding: 30px 0;
+    color: white;
+}
+
+.footer-master p {
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.footer-master span {
+    font-weight: 300;
+    font-size: 1.1rem;
+}
+
+.footer-master img {
+    display: inline-block;
+    width: 40px;
+    padding: 0 7px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .sticker-index {
     margin-top: 40px;

@@ -5,7 +5,7 @@
 
 <a href="/stickers"><button type="button" class="btn btn-sm show-button-return">Volver...</button></a> 
 
-<form class="container col-6 sticker-show-card" action="" method="post" enctype="multipart/form-data">
+<form class="container col-6" action="" method="post" enctype="multipart/form-data">
     <h3> Formulario de edición: </h3>
     {{ method_field('PATCH') }}
     @csrf

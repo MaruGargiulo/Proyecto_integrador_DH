@@ -10,6 +10,11 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public function stickers()
+    {
+        return $this->hasMany(Sticker::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

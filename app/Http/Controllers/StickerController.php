@@ -67,8 +67,7 @@ class StickerController extends Controller
             $sticker->photopath = $file;
         }
 
-        $sticker->user_id = 1;
-        //$sticker->user_id = $this->id;
+        $sticker->user_id = $this->id;
 
         $sticker->save();
 
@@ -116,15 +115,14 @@ class StickerController extends Controller
     {
         $sticker = Sticker::find($id);
 
-        // Luego  vamos campo por campo asignando el nuevo dato o el que haya quedado en el value
+        
         $sticker->album_name = $request->input("album_name");
         $sticker->sticker_number = $request->input("sticker_number");
         $sticker->category_id = $request->input("category_id");
         $sticker->description = $request->input("description");
-        // Y aca, tambien usamos save(), porque es la misma operacion pero sobre algo que ya existe
+       
         $sticker->save();
 
-        //en este caso, redirigimos al perfil de la pelicula que editamos para observar los cambios
         return redirect("/stickers/$sticker->album_name");
     }
 

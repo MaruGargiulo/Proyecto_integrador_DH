@@ -9,7 +9,7 @@
       <div class="card-body">
         <h3> {{ $sticker->album_name }} </h3>
         <p class="card-text"> {{ $sticker->description }} </p>
-        <p class="card-text"> N° de Figurita: {{ $sticker->sticker_number}} | Precio: $20  </p>          
+        <p class="card-text"> N° de Figurita: {{ $sticker->sticker_number}} | Precio: {{ $sticker->price}} | Categoría: {{ $sticker->category->name}}</p>          
         <div class="btn-group">
             <a href=""><button type="button" class="btn btn-sm sticker-show-button-selected">Intercambiar</button></a>
             <a href=""><button type="button" class="btn btn-sm sticker-show-button">Comprar</button></a>

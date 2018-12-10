@@ -30,17 +30,9 @@ Route::get('/', function () {
     Route::get('/home', 'HomeController@index')->name('home');
 
 
+     //STICKERS
 
-    //USUARIOS
-    Route::prefix('user')->name('user.')->group(function (){
-        Route::get('/{name}', 'UserController@showProfile')->name('profile');
-        Route::get('/{name}/edit', 'UserController@edit')->name('edit');
-        Route::put('{name}', 'UserController@saveChanges')->name('update');
-    });
-    
-    //STICKERS
-
-    Route::prefix('stickers')->name('stickers.')->group(function (){
+     Route::prefix('stickers')->name('stickers.')->group(function (){
         Route::get('/create', 'StickerController@create')->name('create');
         Route::post('/create', 'StickerController@store')->name('store');
         Route::get('/{sticker}/edit', 'StickerController@edit')->name('edit');
@@ -49,6 +41,15 @@ Route::get('/', function () {
         Route::get('/', 'StickerController@index')->name('index');
         Route::get('/{album_name}', 'StickerController@show')->name('show');
     });
+
+    //USUARIOS
+    Route::prefix('user')->name('user.')->group(function (){
+        Route::get('/{id}', 'UserController@dashboard')->name('dashboard');
+        Route::get('/{id}/edit', 'UserController@edit')->name('edit');
+        Route::patch('{name}/edit', 'UserController@saveChanges')->name('update');
+    });
+    
+   
 
 
     //USUARIO PARA REGISTRAR
