@@ -10,9 +10,9 @@ use App\Category;
 
 class UserController extends Controller
 {
-    public function dashboard()
+    public function home()
     {
         $user = Auth::user(); 
-        return view('users.dashboard')->with('user', $user);
+        return view('users.home')->with('user', $user);
     }
 }

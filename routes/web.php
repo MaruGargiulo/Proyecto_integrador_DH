@@ -43,14 +43,13 @@ Route::get('/', function () {
     });
 
     //USUARIOS
-    Route::prefix('user')->name('user.')->group(function (){
-        Route::get('/{id}', 'UserController@dashboard')->name('dashboard');
+    Route::prefix('users')->name('users.')->group(function (){
+        Route::get('/home', 'UserController@home')->name('home');
         Route::get('/{id}/edit', 'UserController@edit')->name('edit');
-        Route::patch('{name}/edit', 'UserController@saveChanges')->name('update');
+        Route::patch('{id}/edit', 'UserController@saveChanges')->name('update');
     });
     
    
-
 
     //USUARIO PARA REGISTRAR
     Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');

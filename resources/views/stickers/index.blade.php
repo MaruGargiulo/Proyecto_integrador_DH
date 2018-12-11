@@ -2,7 +2,8 @@
 
 @section('content')
 
-<div class="container sticker-index">
+
+<div class="container stickers-container">
 <div class="album py-5 bg-light">
   <div class="container">
     <div class="row">

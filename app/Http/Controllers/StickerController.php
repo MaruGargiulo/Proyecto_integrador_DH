@@ -67,7 +67,7 @@ class StickerController extends Controller
             $sticker->photopath = $file;
         }
 
-        $sticker->user_id = $this->id;
+        $sticker->user_id = \Auth::user()->id;
 
         $sticker->save();
 

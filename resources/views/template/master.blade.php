@@ -14,10 +14,12 @@
 <body>
 
     @include('layouts.partials.nav')
-  
-    <section>
-        @yield('content')
-    </section>
+    
+    <div class="page-wrap">
+        <section>
+            @yield('content')
+        </section>
+    </div>
    
     @include('layouts.partials.footer')
 

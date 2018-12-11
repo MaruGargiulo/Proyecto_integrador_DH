@@ -1,8 +1,18 @@
 /*  GLOBALES   */
 
+* {
+    margin: 0;
+  }
+
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: 'Ubuntu', sans-serif;
 }
+
+
 
 
 /*  NAV BAR   */
@@ -22,6 +32,15 @@ body {
 
 .logo {
     text-transform: uppercase;
+}
+
+.logout{
+    background-color: #3e424d;
+}
+
+.logout a:hover {
+    background-color: #3e424d;
+    color: white;
 }
 
 
@@ -185,21 +204,50 @@ span.numeros {
 }
 
 
+/* STICKY FOOTER */
 
-
-
-
-
-
-
-
-
-
-
-.sticker-index {
-    margin-top: 40px;
+.page-wrap {
+    min-height: 100%;
+    /* equal to footer height */
+    margin-bottom: -110px; 
 }
 
+.page-wrap:after {
+    content: "";
+    display: block;
+}
+
+.site-footer, .page-wrap:after {
+    height: 110px; 
+}
+
+
+
+
+
+
+/*  SRICKERS.INDEX */
+
+
+.stickers-container {
+    padding-top: 40px;
+}
+
+.user-nav {
+    height: 200px;
+    padding-top: 80px;
+}
+
+.user-nav img {
+    display: inline-block;
+    width: 80px;
+    border-radius: 50%;
+    border: solid #2caec2 2px;
+}
+
+.links-usuario {
+    padding-left: 30px;
+}
 
 .sticker-show-button {
     border-color: rgb(72, 10, 143);
@@ -213,6 +261,19 @@ span.numeros {
     color: white;
     margin-right: 5px;
 }
+
+
+
+/*  SRICKERS.CREATE */
+
+
+.padding-top {
+    padding-top: 100px;
+}
+
+
+
+
 
 
 .sticker-show-card {
