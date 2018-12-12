@@ -71,7 +71,7 @@ class StickerController extends Controller
 
         $sticker->save();
 
-        return redirect('/stickers');
+        return redirect('/users/home');
 
     }
 
@@ -120,6 +120,15 @@ class StickerController extends Controller
         $sticker->sticker_number = $request->input("sticker_number");
         $sticker->category_id = $request->input("category_id");
         $sticker->description = $request->input("description");
+
+        $file = $request->file('photopath');
+
+        if($file === null) {
+            $sticker->photopath = "stickers-img/default-sticker.png";
+        } else {
+            $file = $request->file('photopath')->store('stickers-img', 'public');
+            $sticker->photopath = $file;
+        }
        
         $sticker->save();
 

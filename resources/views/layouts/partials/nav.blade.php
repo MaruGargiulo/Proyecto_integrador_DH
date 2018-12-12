@@ -10,15 +10,31 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="">Cómo funciona</a>
+                                <a class="nav-link" href="#como-funciona">Cómo funciona</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">Preguntas frecuentes</a>
+                                <a class="nav-link" href="#preguntas-frecuentes">Preguntas frecuentes</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href=" {{ url('/stickers') }} ">Buscar stickers</a>
                             </li>
+                        @else
+                        @if(Auth::check() && Auth::user()->role === 1)                          
+                            <li class="nav-item">
+                                <a class="nav-link" href=" {{ url('/stickers') }} ">Buscar stickers</a>
+                            </li>
+                        @endif
+                        @if(Auth::check() && Auth::user()->role === 7)
+                            <li class="nav-item">
+                                <a class="nav-link" href=" {{ url('/backoffice/users') }} ">Usuarios</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href=" {{ url('/stickers') }} ">Agregar categoría</a>
+                            </li>
+                        @endif
+                        @endguest      
                     </ul>
 
                     <!-- Right Side Of Navbar -->

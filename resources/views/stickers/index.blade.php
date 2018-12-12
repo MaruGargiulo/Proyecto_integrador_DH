@@ -10,7 +10,7 @@
       @foreach($stickers as $sticker)
       <div class="col-md-4">
         <div class="card mb-4 box-shadow">
-            <img src="/storage/{{ $sticker->photopath }}" class="card-img-top"  alt="{{ $sticker->album_name }}-{{ $sticker->sticker_number }}">
+            <img src="/storage/{{ $sticker->photopath }}" class="card-img-top sticker-img"  alt="{{ $sticker->album_name }}-{{ $sticker->sticker_number }}">
         <div class="card-body">
             <h3> {{ $sticker->album_name }} </h3>
           <p class="card-text"> N° de Figurita: {{ $sticker->sticker_number}} | Precio: ${{ $sticker->price }} </p>

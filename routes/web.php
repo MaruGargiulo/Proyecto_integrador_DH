@@ -48,10 +48,14 @@ Route::get('/', function () {
         Route::get('/{id}/edit', 'UserController@edit')->name('edit');
         Route::patch('{id}/edit', 'UserController@saveChanges')->name('update');
     });
-    
-   
 
-    //USUARIO PARA REGISTRAR
+    //BACKCOFFICE
+
+    Route::prefix('backoffice')->name('backoffice.')->group(function(){
+        Route::get('/users', 'BackofficeController@index')->name('show');
+    });
+    
+       //USUARIO PARA REGISTRAR
     Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 
 

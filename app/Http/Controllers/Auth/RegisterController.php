@@ -28,7 +28,14 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/login';
+    //protected $redirectTo = '/users/home';
+
+    protected $redirectPath = 'users.home';
+
+    public function redirectPath()
+    {
+        return route($this->redirectPath);
+    }
 
     /**
      * Create a new controller instance.

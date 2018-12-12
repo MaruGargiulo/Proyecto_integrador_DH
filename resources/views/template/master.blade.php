@@ -16,6 +16,9 @@
     @include('layouts.partials.nav')
     
     <div class="page-wrap">
+        @if(Auth::check())
+        @include('layouts.partials.usersNav')
+        @endif
         <section>
             @yield('content')
         </section>

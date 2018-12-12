@@ -10,7 +10,7 @@
       <a href="#" class="boton-violeta">Empezá</a>
     </section>
 
-    <div class="container col-10 como-funciona"> 
+    <div class="container col-10 como-funciona" id="como-funciona"> 
         <h2> CÓMO FUNCIONA STICKEAR </h2>
       
         <section class="row">
@@ -60,7 +60,7 @@
         </section>
     </div>
 
-    <div class="preguntas-frecuentes"> 
+    <div class="preguntas-frecuentes" id="preguntas-frecuentes"> 
         <h2> PREGUNTAS FRECUENTES </h2>
       
         <section class="row">

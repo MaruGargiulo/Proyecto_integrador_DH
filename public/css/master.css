@@ -203,6 +203,14 @@ span.numeros {
     padding: 0 7px;
 }
 
+/*  SRICKERS*/
+
+.sticker-img {
+    max-width: 60%;
+    display: block;
+    margin: 0 auto;
+}
+
 
 /* STICKY FOOTER */
 
@@ -249,6 +257,12 @@ span.numeros {
     padding-left: 30px;
 }
 
+.links-user-nav:visited {
+    color: #2caec2;
+    font-weight: 700;
+    background-color: red;
+}
+
 .sticker-show-button {
     border-color: rgb(72, 10, 143);
     background-color:white;
@@ -271,7 +285,9 @@ span.numeros {
     padding-top: 100px;
 }
 
-
+.padding-bottom {
+    padding-bottom: 30px;
+}
 
 
 
@@ -294,4 +310,13 @@ textarea {
 
 .margin-top {
     margin-top: 80px;
+}
+
+
+
+
+/* STICKERS EDIT */
+
+.form-edit {
+    padding-bottom: 12px;
 }
