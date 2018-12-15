@@ -17,7 +17,8 @@ class CreateStickersTable extends Migration
             $table->increments('id');
             $table->string('album_name');
             $table->string('sticker_number');
-            $table->longText('description');
+            $table->longText('description')->nullable();
+            $table->integer('price');
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('user_id');
             $table->string('photopath')->nullable();

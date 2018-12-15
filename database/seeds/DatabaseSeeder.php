@@ -14,14 +14,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //$this->call(CategorySeeder::class);
+        $this->call(CategorySeeder::class);
 
         
-        $categories = factory(Category::class)->times(10)->create();
+        //$categories = factory(Category::class)->times(10)->create();
 
-        $users = factory(User::class)->times(20)->create();
+        //$users = factory(User::class)->times(20)->create();
         
-        $stickers = factory(Sticker::class)->times(20)->create();    
+        //$stickers = factory(Sticker::class)->times(20)->create();    
         
         /*
         $stickers = factory(Sticker::class, 50)->create([

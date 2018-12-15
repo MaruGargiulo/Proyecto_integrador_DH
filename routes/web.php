@@ -23,10 +23,15 @@ Route::get('/', function () {
 });
 */
 
-    Auth::routes();
+    
 
     Route::view('/', 'layouts.home');
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/stickers', 'StickerController@index')->name('stickers.index');
+    Route::get('/stickers/{album_name}', 'StickerController@show')->name('stickers.show');
+
+
+    Auth::routes();
 
      //STICKERS
 
@@ -37,8 +42,7 @@ Route::get('/', function () {
         Route::patch('/{sticker}/edit', 'StickerController@update')->name('update');
         Route::delete('/{sticker_id}', 'StickerController@destroy')->name('delete');
     });
-    Route::get('/stickers', 'StickerController@index')->name('stickers.index');
-    Route::get('/stickers/{album_name}', 'StickerController@show')->name('stickers.show');
+   
 
     //BACKCOFFICE
 
