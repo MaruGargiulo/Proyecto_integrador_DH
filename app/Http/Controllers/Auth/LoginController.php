@@ -25,7 +25,14 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/users/home';
+    //protected $redirectTo = '/users/home';
+
+    protected $redirectPath = 'users.home';
+
+    public function redirectPath()
+    {
+        return route($this->redirectPath);
+    }
 
     /**
      * Create a new controller instance.

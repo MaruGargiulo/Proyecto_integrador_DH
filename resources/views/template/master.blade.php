@@ -16,7 +16,7 @@
     @include('layouts.partials.nav')
     
     <div class="page-wrap">
-        @if(Auth::check())
+        @if(Auth::check() && Request::url() !== 'http://127.0.0.1:8000')
         @include('layouts.partials.usersNav')
         @endif
         <section>

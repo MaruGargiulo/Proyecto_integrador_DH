@@ -26,37 +26,37 @@ Route::get('/', function () {
     Auth::routes();
 
     Route::view('/', 'layouts.home');
-
     Route::get('/home', 'HomeController@index')->name('home');
-
 
      //STICKERS
 
-     Route::prefix('stickers')->name('stickers.')->group(function (){
+    Route::group(['as' => 'stickers.', 'prefix' => 'stickers', 'middleware' => ['auth']], function() {
         Route::get('/create', 'StickerController@create')->name('create');
         Route::post('/create', 'StickerController@store')->name('store');
         Route::get('/{sticker}/edit', 'StickerController@edit')->name('edit');
         Route::patch('/{sticker}/edit', 'StickerController@update')->name('update');
         Route::delete('/{sticker_id}', 'StickerController@destroy')->name('delete');
-        Route::get('/', 'StickerController@index')->name('index');
-        Route::get('/{album_name}', 'StickerController@show')->name('show');
     });
+    Route::get('/stickers', 'StickerController@index')->name('stickers.index');
+    Route::get('/stickers/{album_name}', 'StickerController@show')->name('stickers.show');
 
+    //BACKCOFFICE
+
+    Route::group(['as' => 'backoffice', 'prefix' => 'backoffice', 'middleware' => ['auth', 'checkrole']], function() {
+        Route::get('/home', 'BackofficeController@dashboard')->name('dashboard');
+        Route::get('/users', 'BackofficeController@index')->name('users');
+    });
+    
     //USUARIOS
-    Route::prefix('users')->name('users.')->group(function (){
+
+    Route::group(['as' => 'users.', 'prefix' => 'users', 'middleware' => ['auth']], function(){
         Route::get('/home', 'UserController@home')->name('home');
         Route::get('/{id}/edit', 'UserController@edit')->name('edit');
         Route::patch('{id}/edit', 'UserController@saveChanges')->name('update');
     });
 
-    //BACKCOFFICE
-
-    Route::prefix('backoffice')->name('backoffice.')->group(function(){
-        Route::get('/users', 'BackofficeController@index')->name('show');
-    });
     
-       //USUARIO PARA REGISTRAR
-    Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+
 
 
 

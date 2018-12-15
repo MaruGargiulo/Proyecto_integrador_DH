@@ -5,9 +5,17 @@
         </div>
         @if(Auth::user()->role === 1)    
         <div class="collapse navbar-collapse links-usuario" id="navbarNavAltMarkup">
-          <div class="navbar-nav links-user-nav">
-            <a class="nav-item nav-link" href=" {{ route('users.home') }} ">Mi mochila <span class="sr-only">(current)</span></a>
+          <div class="navbar-nav">
+            @if(Request::is('users/home'))
+            <a class="nav-item nav-link active" href=" {{ route('users.home') }} ">Mi mochila</a>
+            @else
+            <a class="nav-item nav-link" href=" {{ route('users.home') }} ">Mi mochila</a>
+            @endif
+            @if(Request::is('stickers/create'))
+            <a class="nav-item nav-link active" href=" {{ route('stickers.create') }} ">Agregar sticker</a>
+            @else
             <a class="nav-item nav-link" href=" {{ route('stickers.create') }} ">Agregar sticker</a>
+            @endif
             <a class="nav-item nav-link" href="#">Mis intercambios</a>
             <a class="nav-item nav-link" href="">Configuración</a>
           </div>         

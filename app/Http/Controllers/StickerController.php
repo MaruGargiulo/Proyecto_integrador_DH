@@ -15,7 +15,8 @@ class StickerController extends Controller
      */
     public function index()
     {
-       return view('stickers.index')->with('stickers', Sticker::all());
+        $stickers = Sticker::make()->paginate(9);
+        return view('stickers.index')->with('stickers', $stickers);
     }
 
     /**
@@ -123,16 +124,14 @@ class StickerController extends Controller
 
         $file = $request->file('photopath');
 
-        if($file === null) {
-            $sticker->photopath = "stickers-img/default-sticker.png";
-        } else {
+        if($file !== null) {
             $file = $request->file('photopath')->store('stickers-img', 'public');
             $sticker->photopath = $file;
         }
        
         $sticker->save();
 
-        return redirect("/stickers/$sticker->album_name");
+        return redirect("/users/home");
     }
 
     /**
@@ -145,6 +144,6 @@ class StickerController extends Controller
     {
         $sticker = Sticker::find($id);
         $sticker->delete();
-        return redirect('/stickers');
+        return redirect("users/home");
     }
 }

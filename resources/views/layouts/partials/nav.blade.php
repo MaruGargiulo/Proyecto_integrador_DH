@@ -11,6 +11,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         @guest
+                        @if(Request::url() == 'http://127.0.0.1:8000')
                             <li class="nav-item">
                                 <a class="nav-link" href="#como-funciona">Cómo funciona</a>
                             </li>
@@ -18,20 +19,27 @@
                                 <a class="nav-link" href="#preguntas-frecuentes">Preguntas frecuentes</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href=" {{ url('/stickers') }} ">Buscar stickers</a>
+                                <a class="nav-link" href=" {{ route('stickers.index') }} ">Buscar stickers</a>
                             </li>
+                        @endif
                         @else
-                        @if(Auth::check() && Auth::user()->role === 1)                          
+                        @if(Auth::check() && Auth::user()->role === 1)
                             <li class="nav-item">
-                                <a class="nav-link" href=" {{ url('/stickers') }} ">Buscar stickers</a>
+                                <a class="nav-link" href=" {{ route('users.home') }} ">Perfil</a>
+                            </li>                          
+                            <li class="nav-item">
+                                <a class="nav-link" href=" {{ route('stickers.index') }} ">Buscar stickers</a>
                             </li>
                         @endif
                         @if(Auth::check() && Auth::user()->role === 7)
                             <li class="nav-item">
-                                <a class="nav-link" href=" {{ url('/backoffice/users') }} ">Usuarios</a>
+                                <a class="nav-link" href=" {{ route('users.home') }} ">Perfil</a>
+                            </li> 
+                            <li class="nav-item">
+                                <a class="nav-link" href=" {{ url('backoffice/users') }} ">Usuarios</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href=" {{ url('/stickers') }} ">Agregar categoría</a>
+                                <a class="nav-link" href="">Agregar categoría</a>
                             </li>
                         @endif
                         @endguest      
