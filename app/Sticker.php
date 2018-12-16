@@ -19,4 +19,12 @@ class Sticker extends Model
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
+
+    //agregar columna tradeId a la migración de STICKERS
+
+    public function ownerTrade()
+    {
+        return $this->hasOne(Trade::class);
+    }
+    
 }

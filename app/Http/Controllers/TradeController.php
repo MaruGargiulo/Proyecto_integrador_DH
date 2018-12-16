@@ -3,10 +3,33 @@
 namespace App\Http\Controllers;
 
 use App\Trade;
+
 use Illuminate\Http\Request;
 
 class TradeController extends Controller
 {
+
+
+    public function tradeRequest(Request $request)
+    {
+        //dd($request->sticker_owner_id, Auth()->user()->name);
+
+        $trade = new Trade([
+            'owner_id' => $request->input('owner_id'),
+            'owner_sticker_id' => $request->input('owner_sticker_id'),
+            'trader_id' => Auth()->user()->id,
+            'tradeNotify' => true,
+        ]);
+
+        //dd($trade);
+
+        $trade->save();
+        //dd($trade->traderUser->name);
+        return redirect('/users/mytrades');
+    }
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -46,7 +69,7 @@ class TradeController extends Controller
      */
     public function show(Trade $trade)
     {
-        //
+        return view('users.trade')->with('trades', Trade::all());
     }
 
     /**

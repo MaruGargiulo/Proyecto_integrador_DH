@@ -15,6 +15,19 @@ class User extends Authenticatable
         return $this->hasMany(Sticker::class);
     }
 
+    public function trades()
+    {
+        return $this->hasMany(Trade::class);
+    }
+    
+    /*
+    public function userTrades()
+    {
+        return $this->belongsToMany(Trade::class);
+    }
+    */
+    
+
     /**
      * The attributes that are mass assignable.
      *

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form class="container col-6 padding-top" action="" method="post" enctype="multipart/form-data">
+<form class="container col-6" action="" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label for="type">Nombre del álbum</label>

@@ -1,8 +1,14 @@
 <nav class="navbar navbar-expand-md nav-master">
             <div class="container">
+                @guest
                 <a class="navbar-brand logo" href="{{ url('/') }}">
                     {{ config('app.name', 'Stickear') }}
                 </a>
+                @else
+                <a class="navbar-brand logo" href="{{ route('users.home') }}">
+                    {{ config('app.name', 'Stickear') }}
+                </a>
+                @endguest
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -24,9 +30,7 @@
                         @endif
                         @else
                         @if(Auth::check() && Auth::user()->role === 1)
-                            <li class="nav-item">
-                                <a class="nav-link" href=" {{ route('users.home') }} ">Perfil</a>
-                            </li>                          
+                                                 
                             <li class="nav-item">
                                 <a class="nav-link" href=" {{ route('stickers.index') }} ">Buscar stickers</a>
                             </li>

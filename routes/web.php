@@ -23,13 +23,15 @@ Route::get('/', function () {
 });
 */
 
+        Route::get('users/mytrades', 'TradeController@show')->name('users.mytrades');
+        Route::post('/users/trade', 'TradeController@tradeRequest')->name('trade');    
+
+    
     
 
     Route::view('/', 'layouts.home');
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/stickers', 'StickerController@index')->name('stickers.index');
-    Route::get('/stickers/{album_name}', 'StickerController@show')->name('stickers.show');
-
 
     Auth::routes();
 
@@ -43,6 +45,7 @@ Route::get('/', function () {
         Route::delete('/{sticker_id}', 'StickerController@destroy')->name('delete');
     });
    
+    Route::get('/stickers/{album_name}', 'StickerController@show')->name('stickers.show');
 
     //BACKCOFFICE
 
@@ -57,6 +60,7 @@ Route::get('/', function () {
         Route::get('/home', 'UserController@home')->name('home');
         Route::get('/{id}/edit', 'UserController@edit')->name('edit');
         Route::patch('{id}/edit', 'UserController@saveChanges')->name('update');
+        
     });
 
     
