@@ -47,7 +47,6 @@ Route::get('/', function () {
     //BACKCOFFICE
 
     Route::group(['as' => 'backoffice', 'prefix' => 'backoffice', 'middleware' => ['auth', 'checkrole']], function() {
-        Route::get('/home', 'BackofficeController@dashboard')->name('dashboard');
         Route::get('/users', 'BackofficeController@index')->name('users');
     });
     
@@ -56,12 +55,15 @@ Route::get('/', function () {
     Route::group(['as' => 'users.', 'prefix' => 'users', 'middleware' => ['auth']], function(){
         Route::get('/home', 'UserController@home')->name('home');
         Route::get('/mytrades', 'TradeController@show')->name('mytrades');
-        //Route::patch('/tradeNotify', 'TradeController@tradeNotify')->name('tradeNotify');
+        Route::post('/mytrades', 'TradeController@saveSticker')->name('saveSticker');
+
+        Route::patch('/tradesuccess', 'TradeController@tradeSuccess');
+        Route::delete('/tradedelete' ,'TradeController@tradeDelete');
+        
         Route::post('/trade', 'TradeController@tradeRequest')->name('trade');
         Route::get('/traderStickers/{name}', 'TradeController@traderStickersShow')->name('traderStickers');
         Route::get('/{id}/edit', 'UserController@edit')->name('edit');
-        Route::patch('{id}/edit', 'UserController@saveChanges')->name('update');
-        
+        Route::patch('{id}/edit', 'UserController@saveChanges')->name('update');        
     });
 
     

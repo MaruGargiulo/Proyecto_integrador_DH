@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container padding-top">
+<div class="container">
     <div class="col-md-4">
       <div class="card mb-4 box-shadow">
         <div class="card mb-4 box-shadow">
@@ -13,7 +13,7 @@
         <p class="card-text"> N° de Figurita: {{ $sticker->sticker_number}} | Precio: {{ $sticker->price}} | Categoría: {{ $sticker->category->name}}</p>          
           <div class="btn-group">
             @if(Auth::check())
-            <form action="" method="post">
+            <form action=" {{ route('users.trade') }} " method="post">
               @csrf
               <input type="hidden" value=" {{ $sticker->users->id }} " name="owner_id">
               <input type="hidden" value=" {{ $sticker->id }} " name="owner_sticker_id">

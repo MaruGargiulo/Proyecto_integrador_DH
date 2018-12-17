@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div class="container text-center">
   <div class="alert alert-success" role="alert"> 
         Tenés {{ $trades->count() }} pedido de intercambio!    
