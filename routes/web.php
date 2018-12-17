@@ -23,12 +23,9 @@ Route::get('/', function () {
 });
 */
 
-        Route::get('users/mytrades', 'TradeController@show')->name('users.mytrades');
-        Route::post('/users/trade', 'TradeController@tradeRequest')->name('trade');    
-
+     
+   
     
-    
-
     Route::view('/', 'layouts.home');
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/stickers', 'StickerController@index')->name('stickers.index');
@@ -58,6 +55,10 @@ Route::get('/', function () {
 
     Route::group(['as' => 'users.', 'prefix' => 'users', 'middleware' => ['auth']], function(){
         Route::get('/home', 'UserController@home')->name('home');
+        Route::get('/mytrades', 'TradeController@show')->name('mytrades');
+        //Route::patch('/tradeNotify', 'TradeController@tradeNotify')->name('tradeNotify');
+        Route::post('/trade', 'TradeController@tradeRequest')->name('trade');
+        Route::get('/traderStickers/{name}', 'TradeController@traderStickersShow')->name('traderStickers');
         Route::get('/{id}/edit', 'UserController@edit')->name('edit');
         Route::patch('{id}/edit', 'UserController@saveChanges')->name('update');
         

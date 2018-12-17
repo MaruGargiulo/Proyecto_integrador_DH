@@ -14,7 +14,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $users = factory(User::class)->times(10)->create();
         $this->call(CategorySeeder::class);
+        $this->call(StickerSeeder::class);
+
 
         
         //$categories = factory(Category::class)->times(10)->create();

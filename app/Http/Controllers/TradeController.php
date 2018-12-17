@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Trade;
+use App\User;
 
 use Illuminate\Http\Request;
 
@@ -25,10 +26,27 @@ class TradeController extends Controller
 
         $trade->save();
         //dd($trade->traderUser->name);
-        return redirect('/users/mytrades');
+        return redirect('/users/home');
     }
 
 
+    public function tradeNotify()
+    {
+        //
+        /*
+        $trade->tradeNotify = false;
+        $trade->save();
+        return redirect('/users/mytrades');
+        */
+    }
+
+    public function traderStickersShow($id)
+    {
+
+        $trader = User::find($id);
+        return view('users.traderStickers')->with('trader', $trader);
+
+    }
 
     /**
      * Display a listing of the resource.

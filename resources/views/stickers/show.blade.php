@@ -12,12 +12,14 @@
         <p class="card-text"> {{ $sticker->description }} </p>
         <p class="card-text"> N° de Figurita: {{ $sticker->sticker_number}} | Precio: {{ $sticker->price}} | Categoría: {{ $sticker->category->name}}</p>          
           <div class="btn-group">
-            <form action=" {{ route('trade') }} " method="post">
+            @if(Auth::check())
+            <form action="" method="post">
               @csrf
               <input type="hidden" value=" {{ $sticker->users->id }} " name="owner_id">
               <input type="hidden" value=" {{ $sticker->id }} " name="owner_sticker_id">
               <input type="submit" class="btn btn-sm sticker-show-button-selected" value="Intercambiar" name="trade_requested" >
             </form>
+            @endif
             <a href=""><button type="button" class="btn btn-sm sticker-show-button">Comprar</button></a>
           </div>
         </div>        

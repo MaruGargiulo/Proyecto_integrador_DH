@@ -21,12 +21,10 @@
             <!--<span class="badge badge-primary"> 0 </span>-->           
             </a>
             @else
-            <form action="" method="post">
             <a class="nav-item nav-link" href=" {{ route('users.mytrades') }} ">Pedidos de intercambio
             <!--<span class="badge badge-primary"> 0 </span>--> 
             </a>
-            </form>
-            
+           
             @endif
             <a class="nav-item nav-link" href="">Configuración</a>
           </div>         

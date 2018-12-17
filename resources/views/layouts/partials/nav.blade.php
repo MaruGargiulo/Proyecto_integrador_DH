@@ -2,7 +2,7 @@
             <div class="container">
                 @guest
                 <a class="navbar-brand logo" href="{{ url('/') }}">
-                    {{ config('app.name', 'Stickear') }}
+                    Stickear
                 </a>
                 @else
                 <a class="navbar-brand logo" href="{{ route('users.home') }}">
